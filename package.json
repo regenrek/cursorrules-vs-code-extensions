@@ -1,0 +1,45 @@
+{
+  "name": "cursorrules-search",
+  "displayName": "Cursor Directory Rules - Search and Add",
+  "description": "A simple extension that allows you to search and add .cursorrules of popular frameworks.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "images/icon.png",
+  "publisher": "regenrek",
+  "repository": "https://github.com/regenrek/cursorrules-vs-code-extension",
+  "activationEvents": [
+    "onCommand:cursor-rules.searchAndAdd"
+  ],
+  "main": "./dist/extension.cjs",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursor-rules.searchAndAdd",
+        "title": "Search and Add Cursor Rules"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "bun run ./scripts/build-with-esbuild.ts",
+    "watch": "bun run ./scripts/watch-with-esbuild.ts",
+    "crawl": "bun scripts/crawl-rules.ts",
+    "vsce-package": "bun run vsce package",
+    "package": "bun run build && bun run vsce-package",
+    "clean": "rm -r ./dist"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "minisearch": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@vscode/vsce": "^3.2.1",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.2"
+  }
+}

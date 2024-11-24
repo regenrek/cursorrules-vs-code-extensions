@@ -1,0 +1,33 @@
+name: Crawl Rules
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Runs at 00:00 on Sunday
+  workflow_dispatch:      # Allows manual triggering
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run crawler
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run crawl
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/rules.db.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update rules database"
+          git push
