@@ -1,7 +1,7 @@
 {
   "name": "cursorrules-search",
-  "displayName": "Cursor Directory Rules - Search and Add",
-  "description": "A simple extension that allows you to search and add .cursorrules of popular frameworks.",
+  "displayName": "Cursor Rules Manager",
+  "description": "No more copying and searching for cursorrules manually",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.86.0"
@@ -9,11 +9,11 @@
   "categories": [
     "Other"
   ],
-  "icon": "images/icon.png",
-  "publisher": "regenrek",
+  "icon": "/images/icon.png",
+  "publisher": "KevinKern",
   "repository": "https://github.com/regenrek/cursorrules-vs-code-extension",
   "activationEvents": [
-    "*"
+    "onCommand:cursorrules-search.searchAndAddCursorRules"
   ],
   "main": "./dist/extension.cjs",
   "contributes": {
@@ -37,7 +37,7 @@
     "minisearch": "^7.1.0"
   },
   "devDependencies": {
-    "@types/vscode": "^1.95.0",
+    "@types/vscode": "^1.86.0",
     "@vscode/vsce": "^3.2.1",
     "esbuild": "^0.24.0",
     "typescript": "^5.7.2"
