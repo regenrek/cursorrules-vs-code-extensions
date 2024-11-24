@@ -1,4 +1,4 @@
-# CursorRules Extension
+# Cursor Rules Manager VS Code Extension
 
 ![Banner](./images/banner.png)
 
@@ -26,6 +26,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Links
 
-My X/Twitter [@kregenrek](https://x.com/kregenrek)
-My Bluesky [@kevinkern.dev](https://bsky.app/profile/kevinkern.dev)
-My Ultimate Cursor AI Course [Instructa.ai](https://www.instructa.ai/en/cursor-ai)
+X/Twitter [@kregenrek](https://x.com/kregenrek)
+Bluesky [@kevinkern.dev](https://bsky.app/profile/kevinkern.dev)
+Ultimate Cursor AI Course [Instructa.ai](https://www.instructa.ai/en/cursor-ai)
