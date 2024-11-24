@@ -13,28 +13,36 @@
   "publisher": "regenrek",
   "repository": "https://github.com/regenrek/cursorrules-vs-code-extension",
   "activationEvents": [
-    "onCommand:cursor-rules.searchAndAddCursorRules"
+    "*"
   ],
-  "main": "./dist/extension.cjs",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "cursor-rules.searchAndAddCursorRules",
+        "command": "cursorrules.searchAndAddCursorRules",
         "title": "Search and Add Cursor Rules"
+      },
+      {
+        "command": "cursorrules.testCommand",
+        "title": "Test Command"
       }
     ]
   },
   "scripts": {
-    "build": "bun run ./scripts/build-with-esbuild.ts",
-    "watch": "bun run ./scripts/watch-with-esbuild.ts",
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "watch-web": "webpack --watch",
     "crawl": "bun scripts/crawl-rules.ts",
-    "vsce-package": "bun run vsce package",
-    "package": "bun run build && bun run vsce-package",
-    "clean": "rm -r ./dist"
+    "vsce-package": "vsce package",
+    "package": "npm run build && npm run vsce-package",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "axios": "^1.6.7",
-    "minisearch": "^7.1.0"
+    "minisearch": "^7.1.0",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
     "@types/vscode": "^1.95.0",

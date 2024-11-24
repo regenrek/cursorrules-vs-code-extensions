@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import MiniSearch from "minisearch";
 import * as path from "path";
-import * as fs from "fs";
+import { promises as fs } from "fs";
 
 interface Rule {
   title: string;
@@ -20,9 +20,9 @@ export async function searchAndAddCursorRules(
   context: vscode.ExtensionContext
 ) {
   try {
-    // Read rules from the bundled JSON file
+    // Read rules from the bundled JSON file using async fs
     const rulesPath = path.join(__dirname, "..", "rules.db.json");
-    const rulesContent = fs.readFileSync(rulesPath, "utf8");
+    const rulesContent = await fs.readFile(rulesPath, "utf8");
     const rules: Rule[] = JSON.parse(rulesContent);
 
     // Configure MiniSearch
@@ -103,19 +103,20 @@ async function saveRuleToWorkspace(rule: Rule) {
 
         // Read existing rules if file exists
         let existingContent = "";
-        if (fs.existsSync(cursorRulesPath)) {
-          existingContent = fs.readFileSync(cursorRulesPath, "utf8");
+        try {
+          existingContent = await fs.readFile(cursorRulesPath, "utf8");
           // Add a newline if the file isn't empty and doesn't end with one
           if (existingContent && !existingContent.endsWith("\n")) {
             existingContent += "\n";
           }
+        } catch (error) {
+          // File doesn't exist yet, which is fine
         }
 
-        // Append new rule content
-        fs.writeFileSync(
+        // Write the file with new content
+        await fs.writeFile(
           cursorRulesPath,
-          existingContent + rule.content + "\n",
-          { flag: "w" }
+          existingContent + rule.content + "\n"
         );
 
         vscode.window.showInformationMessage(
