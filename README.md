@@ -28,3 +28,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 My X/Twitter [@kregenrek](https://x.com/kregenrek)
 My Bluesky [@kevinkern.dev](https://bsky.app/profile/kevinkern.dev)
+My Ultimate Cursor AI Course [Instructa.ai](https://www.instructa.ai/en/cursor-ai)

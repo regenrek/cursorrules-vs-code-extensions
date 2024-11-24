@@ -13,13 +13,13 @@
   "publisher": "regenrek",
   "repository": "https://github.com/regenrek/cursorrules-vs-code-extension",
   "activationEvents": [
-    "onCommand:cursor-rules.searchAndAdd"
+    "onCommand:cursor-rules.searchAndAddCursorRules"
   ],
   "main": "./dist/extension.cjs",
   "contributes": {
     "commands": [
       {
-        "command": "cursor-rules.searchAndAdd",
+        "command": "cursor-rules.searchAndAddCursorRules",
         "title": "Search and Add Cursor Rules"
       }
     ]
