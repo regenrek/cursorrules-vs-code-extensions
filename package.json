@@ -2,7 +2,7 @@
   "name": "cursorrules-search",
   "displayName": "Cursor Rules Manager",
   "description": "No more copying and searching for cursorrules manually",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.86.0"
   },
