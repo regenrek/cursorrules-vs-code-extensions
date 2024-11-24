@@ -1,12 +1,13 @@
 import * as vscode from "vscode";
 import { searchAndAddCursorRules } from "./commands/searchAndAdd";
 
-export function activate(context: vscode.ExtensionContext): void {
+export const activate = (context: vscode.ExtensionContext) => {
   const disposable = vscode.commands.registerCommand(
-    "cursor-rules.searchAndAddCursorRules",
+    "cursorrules-search.searchAndAddCursorRules",
     () => searchAndAddCursorRules(context)
   );
-  context.subscriptions.push(disposable);
-}
 
-export function deactivate(): void {}
+  context.subscriptions.push(disposable);
+};
+
+export const deactivate = () => {};

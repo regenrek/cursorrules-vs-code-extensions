@@ -4,7 +4,7 @@
   "description": "A simple extension that allows you to search and add .cursorrules of popular frameworks.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.95.0"
+    "vscode": "^1.86.0"
   },
   "categories": [
     "Other"
@@ -13,13 +13,13 @@
   "publisher": "regenrek",
   "repository": "https://github.com/regenrek/cursorrules-vs-code-extension",
   "activationEvents": [
-    "onCommand:cursor-rules.searchAndAddCursorRules"
+    "*"
   ],
   "main": "./dist/extension.cjs",
   "contributes": {
     "commands": [
       {
-        "command": "cursor-rules.searchAndAddCursorRules",
+        "command": "cursorrules-search.searchAndAddCursorRules",
         "title": "Search and Add Cursor Rules"
       }
     ]
