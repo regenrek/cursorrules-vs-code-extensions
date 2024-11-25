@@ -20,7 +20,7 @@
     "commands": [
       {
         "command": "cursorrules-search.searchAndAddCursorRules",
-        "title": ".cursorrules: Search & Add Cursor Rules"
+        "title": "Cursor Rules Manager: Search & Add Cursor Rules"
       }
     ]
   },
